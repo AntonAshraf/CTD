@@ -1,40 +1,23 @@
-from tkinter import *
-import hashlib
-import re
+import cv2
+import numpy as np
 
-root = Tk()
-root.geometry("700x400")
-root.config(bg="light grey")
-root.title("                                                                              Login")
+cap = cv2.VideoCapture(0)
 
-password = "SuperHardPassword99"
-hashpass = hashlib.new("md5",password.encode("utf-8")).hexdigest()
+while True:
+    ret, frame = cap.read()
+    hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
 
-def click():
-  user = userInput.get()
-  pas = passInput.get()
-  hpass = hashlib.md5(pas.encode("utf-8")).hexdigest()
-  
-  regex = "[@_!#$%^&*()<>?/\|}{~:]"
-  special = re.compile(regex)
-  
-  if  user == "guest" and hpass == hashpass:
-    Label(root, text="Thats right! Login is sucsseful!", fg="green", font="bold").place(x= 160, y=300)
-  elif user == "" or pas == "":
-    Label(root, text="Enter tht username or the password!", fg="red", font="bold").place(x= 160, y=300)
-  elif special.search(user) != None or special.search(pas):
-    Label (root, text="There is speacial charcther in the Username!", fg="red", font="bold").place(x= 160, y=300)
-  else:
-    Label (root, text="Wrong Username or password", fg="red", font="bold").place(x= 160, y=300)
+    lowerRed = np.array([150,150,0])
+    upperRed = np.array([180, 255, 255])
 
-userInput = Entry(root, font="sans",width=20, fg="blue")
-passInput = Entry(root, font="sans",width=20, fg="blue")
-userInput.place(x=260,y=35)
-passInput.place(x=260, y=105)
-passInput.config(show="•")
+    mask = cv2.inRange(hsv, lowerRed, upperRed)
+    res = cv2.bitwise_and(frame, frame, mask = mask)
 
-username = Label (root, text= "Username: ",font="bold",bg ="light grey").grid(row=0,column=  0, pady=30, padx=150)
-password = Label (root, text= "Password: ",font="bold",bg ="light grey").grid(row=1,column=  0, pady=10, padx= 150)
-button = Button (root, text="Login" ,  padx= 30, pady=10, fg="black",border=1,bg="light grey", command=click).place(x=240,y= 180)
 
-root.mainloop()
+    cv2.imshow("res", res)
+    cv2.imshow("mask", mask)
+    if cv2.waitKey(1) & 0xFF == ord("q"):
+        break
+
+cap.release()
+cv2.destroyAllWindows()
