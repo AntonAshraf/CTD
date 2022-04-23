@@ -1,3 +1,6 @@
+import cv2
+import vlc
+
 bag = []
 bag = [10 for i in range(3)]
 
@@ -65,21 +68,35 @@ def computerturn():
         print("The computer removed 1 from bag ", i + 1)
         return 
 
+def Win():
+  player = vlc.MediaPlayer(r'C:\Users\anton\OneDrive\Desktop\Github\CTD\win.wav')
+  player.play()
+  img = cv2.imread("C:CTD/win.jpg")
+  cv2.imshow("You Win", img)
+  cv2.setWindowProperty("You Win", cv2.WND_PROP_TOPMOST, 1)
+  cv2.waitKey(0)
+
+def Lose():
+  img = cv2.imread("C:CTD/gameover.jpg")
+  player = vlc.MediaPlayer(r'C:\Users\anton\OneDrive\Desktop\Github\CTD\lose.wav')
+  player.play()
+  cv2.imshow("Game Over, you lose", img)
+  cv2.setWindowProperty("Game Over, you lose", cv2.WND_PROP_TOPMOST, 1)
+  cv2.waitKey(0)
+
 while True:
   
   print("\033[0;37;40m")
   print(bag)
   userturn()
-  if bag[0] == 0 and bag[1] == 0 and bag[2] == 0:
-    print("\033[1;32;40m")
-    print("Congratulations, You Won!!!")
+  if bag[0] == 0 and bag[1] == 0 and bag[2] == 0:    
+    Win()
     break
   print("\033[0;37;40m")
   print(bag)
   computerturn()
   if bag[0] == 0 and bag[1] == 0 and bag[2] == 0:
-    print("\033[1;31;40m")
-    print("Hard Luck, You Lose!")
+    Lose()
     break
   print ("-----------------------------------------------------------------")
   
