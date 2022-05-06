@@ -20,9 +20,9 @@ def image_resize(image, width = None, height = None, inter = cv2.INTER_AREA):
 shapes = [0 for i in range(4)]
 dim = ((100, 110), (100, 240), (100,380), (100, 530))
 
-img = cv2.imread(r'C:\Users\anton\OneDrive\Desktop\Github\other\opencv\IMG_3033.jpg')
+img = cv2.imread(r'C:\Users\anton\OneDrive\Desktop\Github\other\opencv\shapes.jpg')
 resize = image_resize(img, width=600, height=400)
-output = cv2.imread(r'C:\Users\anton\OneDrive\Desktop\Github\CTD\#ofShapes.jpg')
+output = cv2.imread(r'C:\Users\anton\OneDrive\Desktop\Github\CTD\Media\#ofShapes.jpg')
 h, w = resize.shape[:2]
 crop = resize[50:h-50, 50:w-50]
 gray = cv2.cvtColor(crop, cv2.COLOR_BGR2GRAY)
@@ -32,7 +32,7 @@ contours, _ = cv2.findContours(thresh, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
 for contour in contours:
   approx = cv2.approxPolyDP(contour, 0.03 * cv2.arcLength(contour, True), True,)
   area = cv2.contourArea(contour)
-  if 500 < area < 8000 :
+  if 400 < area < 8000 :
     cv2.drawContours(crop, [contour], 0, (0, 255, 0), 3)
   
     if len(approx) == 3:                # Triangle

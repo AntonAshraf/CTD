@@ -8,12 +8,12 @@ This is some small challenges from RobEn Club at AAST aim to let me learn and pr
 
 Here you can view the challenges
 
-- [CTD 1](https://github.com/AntonAshraf/CTD/blob/main/PDFs/ctd1.pdf)
-- [CTD 2](https://github.com/AntonAshraf/CTD/blob/main/PDFs/ctd2.pdf)
-- [CTD 3](https://github.com/AntonAshraf/CTD/blob/main/PDFs/ctd3.pdf)
-- [CTD 4](https://github.com/AntonAshraf/CTD/blob/main/PDFs/ctd4.pdf)
-- [CTD 5](https://github.com/AntonAshraf/CTD/blob/main/PDFs/ctd5.pdf)
-- [CTD 6](https://github.com/AntonAshraf/CTD/blob/main/PDFs/ctd6.png)
+- [CTD 1](https://github.com/AntonAshraf/Private-Codes/blob/main/Uploads/PDFs/ctd1.pdf)
+- [CTD 2](https://github.com/AntonAshraf/Private-Codes/blob/main/Uploads/PDFs/ctd2.pdf)
+- [CTD 3](https://github.com/AntonAshraf/Private-Codes/blob/main/Uploads/PDFs/ctd3.pdf)
+- [CTD 4](https://github.com/AntonAshraf/Private-Codes/blob/main/Uploads/PDFs/ctd4.pdf)
+- [CTD 5](https://github.com/AntonAshraf/Private-Codes/blob/main/Uploads/PDFs/ctd5.pdf)
+- [CTD 6](https://github.com/AntonAshraf/Private-Codes/blob/main/Uploads/PDFs/ctd6.png)
 
 Each cahllenge targets to practice with a new library or implement a new concept.
 
